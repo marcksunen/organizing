@@ -27,5 +27,7 @@ describe("Alphabet", function() {
     expect(alphabet.giveMeAn('a').toCaps()).toEqual('A');
     expect(alphabet.giveMeAn('C').toLower()).toEqual('c');
   });
-
+  it("suports null petitions", function() {
+    expect(alphabet.giveMeAn().toCaps()).toEqual('');
+  });  
 });

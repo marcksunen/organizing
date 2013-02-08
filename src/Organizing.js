@@ -56,14 +56,18 @@ function Letter(letter) {
 
 };
 
+Letter.nullLetter=new Letter('');
 Letter.pool={};
 Letter.obtain = function(letter) {
-	theLetter = this.pool[letter];
-	if(!theLetter) {
-		aLetter = new Letter(letter);
-		this.pool[letter]=aLetter;
+	if(!letter){
+		return Letter.nullLetter;
 	}
-	return new Letter(letter);
+	var theLetter = this.pool[letter];
+	if(!theLetter) {
+		theLetter = new Letter(letter);
+		this.pool[letter]=theLetter;
+	}
+	return theLetter;
 };
 
 function Alphabet() {
